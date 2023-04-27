@@ -104,6 +104,7 @@ export default function ButtonAppBar() {
                     <li>A yellow tile means that the letter is in the word, but in the wrong spot</li>
                     <li>A green tile means that the letter is in the word and in the wrong spot</li>
                 </ul>
+                For testing purposes, inspecting console will give answer.
             
             </Typography>
             </Box>
