@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/wordle-clone/static/css/main.44f594df.css",
+    "main.js": "/wordle-clone/static/js/main.5a82191e.js",
+    "static/js/787.4f6053cc.chunk.js": "/wordle-clone/static/js/787.4f6053cc.chunk.js",
+    "static/media/WordList.txt": "/wordle-clone/static/media/WordList.0a18cad967b6a4c42cd4.txt",
+    "index.html": "/wordle-clone/index.html",
+    "main.44f594df.css.map": "/wordle-clone/static/css/main.44f594df.css.map",
+    "main.5a82191e.js.map": "/wordle-clone/static/js/main.5a82191e.js.map",
+    "787.4f6053cc.chunk.js.map": "/wordle-clone/static/js/787.4f6053cc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44f594df.css",
+    "static/js/main.5a82191e.js"
+  ]
+}
