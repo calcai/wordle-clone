@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { createContext, useEffect, useState } from 'react';
 import './App.css';
 import Board from './Components/Board';
@@ -6,6 +6,13 @@ import GameOver from './Components/GameOver';
 import Keyboard from './Components/Keyboard/Keyboard';
 import { boardwordle, generateWords } from './Components/Words/Word';
 import ButtonAppBar from './Components/IconButtons/AppBar';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+
 
 export const AppContext = createContext()
 
@@ -20,7 +27,7 @@ function App() {
   const [disabledLetters,setDisabledLetters] = useState([])
   const [almostLetters,setAlmostLetters] = useState([])
   const [correctLetters,setCorrectLetters] = useState([])
-  
+  const [open, setOpen] = React.useState(false);
   
   useEffect(()=>{
 
@@ -58,7 +65,8 @@ function App() {
       setCurrAttempt({attempt:currentAttempt.attempt+1,letterPoss:0})
     }
     if(!wordSet.has(currWord.toLowerCase())){
-      alert("Word not in the list")
+      //alert("Word not in the list") 
+      setOpen(true)
     }
 
     if(currWord.toLowerCase() === correctWord){
@@ -92,6 +100,27 @@ function App() {
   return (
     <div className="App">
       <ButtonAppBar />
+      <Box sx={{ width: '100%' }}>
+      <Collapse in={open}>
+        <Alert severity='error'
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          Invalid word. Try again.
+        </Alert>
+      </Collapse>
+    </Box>
       <AppContext.Provider value={{board,setBoard,correctWord,wordSet,
         setCorrectWord,currentAttempt,setCurrAttempt,gameOver,setGameOver,
         disabledLetters,setDisabledLetters,almostLetters,setAlmostLetters,correctLetters,setCorrectLetters,
