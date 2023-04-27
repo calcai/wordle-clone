@@ -38,6 +38,8 @@ export default function GameOver() {
   const handleClose = () => setOpen(false);
 
   let attempts = "".concat("You solved it in ", currentAttempt.attempt," ", currentAttempt.attempt >= 2 ? 'attempts' : 'attempt')
+  let correct = "".concat('You Guessed Correctly! The Answer was "', correctWord, '" Refresh to play again.')
+  let wrong = "".concat('Game Over. The Correct Answer was "', correctWord, '" Refresh to try again.')
 
   function RefreshPage(){
     window.location.reload(false);
@@ -54,11 +56,12 @@ export default function GameOver() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {gameOver.guessedWord ? "You Guessed Correctly! Refresh to play again." : "Game Over. Refresh to try again."}
+            {gameOver.guessedWord ? correct : wrong}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {gameOver.guessedWord ? attempts : ""}
           </Typography>
+          <br/>
           <Button theme = {BlackTheme} onClick = {RefreshPage} variant="outlined">Refresh</Button>
         </Box>
       </Modal>
